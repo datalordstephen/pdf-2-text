@@ -11,7 +11,10 @@ def read_bytes(url):
     """
     Read a pdf from the cloud as bytes
     """
-
+    # Handle GitHub URLs to get raw content
+    if 'github.com' in url:
+        url = url.replace('github.com', 'raw.githubusercontent.com').replace('/blob/', '/')
+    
     response = requests.get(url)
     return response.content
 
