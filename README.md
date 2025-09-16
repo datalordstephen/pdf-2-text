@@ -58,10 +58,6 @@ brew install tesseract poppler
 * Install [TesseractOCR](https://pypi.org/project/pytesseract/)
 * Install [Poppler/pdf2image](https://pypi.org/project/pdf2image/)
 
-```bash
-python -m venv venv
-```
-
 ### 3. Create Virtual Environment
 ```bash
 python -m venv venv
