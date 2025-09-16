@@ -4,6 +4,7 @@ FROM python:3.10-slim
 # Install system dependencies (Tesseract + Poppler for pdf2image)
 RUN apt-get update && apt-get install -y \
     tesseract-ocr \
+    tesseract-ocr-eng \
     poppler-utils \
     && rm -rf /var/lib/apt/lists/*
 
