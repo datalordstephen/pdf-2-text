@@ -1,6 +1,11 @@
 import pytesseract
 from pdf2image import convert_from_bytes
 import requests
+import logging
+
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 def read_bytes(url):
     """
@@ -34,9 +39,13 @@ def url_to_text(URL):
     """
     Extract text from a pdf url and return payload
     """
-
-    pdf_bytes = read_bytes(URL)
+    logger.info(f"Processing PDF: {URL}")
+    
+    pdf_bytes = read_bytes(URL) 
+    logger.info(f"Downloaded PDF of size: {len(pdf_bytes)} bytes")
+    
     images = pdf_to_images(pdf_bytes)
+    logger.info(f"Converted PDF to {len(images)} images")
 
     res = {}
 
